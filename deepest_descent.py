@@ -83,23 +83,20 @@ def deepest_descent(VT, T, best_state_trivial, states_list) :
             break
     return best_state
 
-        
-
 # Max size
 T = 19 
 # Object array
 VT = [(1, 3), (4, 6), (5, 7)]
 
-# States
+# Trivial solution
 states = [0] * len(VT)
-
-# Main
 best_state_trivial = hillClimbing(VT, states, T)
 
 # Deepest descent
 states_list = []
 best_state_deepest = deepest_descent(VT, T, best_state_trivial, states_list)
 print(best_state_deepest)
+
 # Results
 total_value_trivial = getValueState(VT, best_state_trivial)
 total_size_trivial = getSizeState(VT, best_state_trivial)

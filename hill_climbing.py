@@ -46,10 +46,16 @@ def hillClimbing(VT, states, T) :
         if(not stateExpand(VT, states, T)) :
             return states
 
-T = 19
+# Max size
+T = 19 
+# Objects array
 VT = [(1, 3), (4, 6), (5, 7)]
+
+# Hill Climbing
 states = [0] * len(VT)
 best_state = hillClimbing(VT, states, T)
+
+# Results
 total_value = getValueState(VT, best_state)
 total_size = getSizeState(VT, best_state)
 print ("[Total Value => ", total_value, ", Total Size => ", total_size, ", Best State => ", best_state)

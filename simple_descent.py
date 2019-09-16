@@ -86,17 +86,13 @@ def simple_descent(VT, T, best_state_trivial, states_list) :
             break
     return best_state
 
-        
-
 # Max size
 T = 19 
 # Object array
 VT = [(1, 3), (4, 6), (5, 7)]
 
-# States
+# Trivial solution
 states = [0] * len(VT)
-
-# Main
 best_state_trivial = hillClimbing(VT, states, T)
 
 # Simple descent

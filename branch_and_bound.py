@@ -88,7 +88,9 @@ def addToList(VT, state, states_list) :
 def sortList(states_list) :
     states_list.sort(key = lambda pos: pos[1], reverse = False)
 
-T = 19
+# Max size
+T = 19 
+# Objects array
 VT = [(1, 3), (4, 6), (5, 7)]
 
 # Trivial solution

@@ -78,10 +78,8 @@ T = 19
 # Objects array
 VT = [(1, 3), (4, 6), (5, 7)]
 
-# States
+# Trivial solution
 states = [0] * len(VT)
-
-# Main
 best_state_trivial = hillClimbing(VT, states, T)
 
 # Beam search
