@@ -106,7 +106,7 @@ total_size_trivial = getSizeState(VT, best_state_trivial)
 total_value_simple = getValueState(VT, best_state_simple)
 total_size_simple = getSizeState(VT, best_state_simple)
 
-print("Trivial solution")
+print("Trivial Solution")
 print ("[Total Value => ", total_value_trivial, ", Total Size => ", total_size_trivial, ", Best State => ", best_state_trivial)
 
 print("Simple Descent")

@@ -112,7 +112,7 @@ total_size_optimistic = getSizeState(VT, best_state_optimistic)
 total_value_non_optimistic = getValueState(VT, best_state_non_optimistic)
 total_size_non_optimistic = getSizeState(VT, best_state_non_optimistic)
 
-print("Trivial solution")
+print("Trivial Solution")
 print ("[Total Value => ", total_value_trivial, ", Total Size => ", total_size_trivial, ", Best State => ", best_state_trivial)
 
 print("Branch and Bound")

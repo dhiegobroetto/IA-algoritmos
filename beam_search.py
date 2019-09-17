@@ -94,7 +94,7 @@ total_size_trivial = getSizeState(VT, best_state_trivial)
 total_value_beam = getValueState(VT, best_state_beam)
 total_size_beam = getSizeState(VT, best_state_beam)
 
-print("Trivial solution")
+print("Trivial Solution")
 print ("[Total Value => ", total_value_trivial, ", Total Size => ", total_size_trivial, ", Best State => ", best_state_trivial)
 
 print("Beam Search")

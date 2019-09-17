@@ -58,4 +58,5 @@ best_state = hillClimbing(VT, states, T)
 # Results
 total_value = getValueState(VT, best_state)
 total_size = getSizeState(VT, best_state)
+print("Hill Climbing")
 print ("[Total Value => ", total_value, ", Total Size => ", total_size, ", Best State => ", best_state)
