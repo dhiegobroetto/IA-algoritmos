@@ -32,12 +32,19 @@ def getNegativeNeighbor(state, states_list) :
             state_aux[i] -= 1
             states_list.append(state_aux)
 
+def getBestStates(VT, population,k) :
+    states = []
+    best_genetic = []
+    if(len(population) == 0) :
+        return best_genetic
+    while len(population) < k :
+
 
 def defineNeighborhood(VT, state, states_list) :
     getPositiveNeighbor(state, states_list)
     getNegativeNeighbor(state, states_list)   
 
-def genetic(VT, max_size, population_size):
+def genetic(VT, max_size, population_size, k):
     population = []
     best_solution = [0] * len(VT)
     best_value = getValueState(VT, best_solution)
@@ -54,7 +61,7 @@ def genetic(VT, max_size, population_size):
                 if(best_value < getValueState(VT, state)) :
                     best_value = getValueState(VT, state)
                     best_state = state
-            population = select_best(population,n,values)
+            population = getBestStates(VT, population,k)
                     
         if(not find_best) :
             break
@@ -78,13 +85,13 @@ population_size = 5
 
 crossover_ratio = 0.5
 mutation_ratio = 0.1
-n = 3
+k = 3
 
 
 
 # Genetic
 states_list = []
-best_genetic = genetic(VT, max_size, t, alpha, states_list)
+best_genetic = genetic(VT, max_size, population_size, k)
 
 # Results
 total_value_simple = getValueState(VT, best_genetic)
