@@ -75,18 +75,11 @@ VT = [(1, 3), (4, 6), (5, 7)]
 t = 100
 alpha = 0.5
 
-# Trivial solution
-# states = [0] * len(VT)
-# best_state_trivial = hillClimbing(VT, states, max_size)
-
 # Simulated Annealing
 states_list = []
 best_simulated_annealing = simulated_annealing(VT, max_size, t, alpha, states_list)
 
 # Results
-# total_value_trivial = getValueState(VT, best_state_trivial)
-# total_size_trivial = getSizeState(VT, best_state_trivial)
-
 total_value_simple = getValueState(VT, best_simulated_annealing)
 total_size_simple = getSizeState(VT, best_simulated_annealing)
 
