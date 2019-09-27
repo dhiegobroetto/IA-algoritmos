@@ -25,17 +25,18 @@ def getPositiveNeighbor(state, states_list) :
         state_aux[i] += 1
         states_list.append(state_aux)
 
-def getNegativeNeighbor(state, states_list) :
+def getNegativeNeighbor(VT, state, states_list) :
     for i in range(0, len(state)):
         if state[i] > 0:
             state_aux = state.copy()
             state_aux[i] -= 1
-            states_list.append(state_aux)
+            if(getValueState(VT, state_aux) != 0) :
+                states_list.append(state_aux)
 
 
 def defineNeighborhood(VT, state, states_list) :
     getPositiveNeighbor(state, states_list)
-    getNegativeNeighbor(state, states_list)   
+    getNegativeNeighbor(VT, state, states_list)   
 
 def probabilityState(worst_case,state,t) :
     p = 1/math.exp(1)**((worst_case-state)/t)
@@ -46,7 +47,6 @@ def simulated_annealing(VT, max_size, t, alpha, states_list) :
     best_value = 0
     best_state = [0] * len(VT)
     while(t >= 1) :
-        find_best = False
         defineNeighborhood(VT, best_state, states_list)
         shuffle(states_list)
         while(states_list != []) :
@@ -55,16 +55,13 @@ def simulated_annealing(VT, max_size, t, alpha, states_list) :
                 if(best_value < getValueState(VT, state)) :
                     best_value = getValueState(VT, state)
                     best_state = state
-                    find_best = True
                     states_list.clear()
                 else :
                     if(probabilityState(getValueState(VT, state),getValueState(VT,best_state),t)) :
                         best_value = getValueState(VT, state)
                         best_state = state
-                        find_best = True
                         break
-        if(not find_best) :
-            break
+
         t *= alpha
     return state
 
@@ -83,5 +80,5 @@ best_simulated_annealing = simulated_annealing(VT, max_size, t, alpha, states_li
 total_value_simple = getValueState(VT, best_simulated_annealing)
 total_size_simple = getSizeState(VT, best_simulated_annealing)
 
-print("Simple Descent")
+print("Simulated Annealing")
 print ("[Total Value => ", total_value_simple, ", Total Size => ", total_size_simple, ", Best State => ", best_simulated_annealing)
