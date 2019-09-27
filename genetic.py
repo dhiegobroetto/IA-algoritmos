@@ -135,8 +135,6 @@ def genetic(VT, max_size, population_size, k, max_iteration, crossover_ratio, mu
                 population.append([state, value])
     return best_state
 
-    
-
 def generateRandomState(VT, max_size) :
     state = []
     while(True) :
