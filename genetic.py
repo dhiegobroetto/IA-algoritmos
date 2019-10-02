@@ -79,9 +79,6 @@ def crossover(VT, states, crossover_ratio) :
             state2 = random.randint(0,len(states)-1)
             while state1 == state2:
                 state2 = random.randint(0,len(states)-1)
-            print(state1)
-            print(state2)
-            print('{} {}'.format('len: ',states))
             states[state1][0], states[state2][0] = crossStates(states[state1][0], states[state2][0])
             states[state1][1] = getValueState(VT, states[state1][0])
             states[state2][1] = getValueState(VT, states[state2][0])
@@ -126,7 +123,6 @@ def genetic(VT, max_size, population_size, k, max_iteration, crossover_ratio, mu
         population = mutate(VT, population, mutation_ratio)
         population.append(state)
         if(len(population) > 1 ) : 
-            print('{}: {}'.format('population', population))
             population = [state for state in population if getSizeState(VT, state[0]) <= max_size]
         if(len(population) < population_size) :
             for _ in range(population_size - len(population)):
